@@ -1,0 +1,38 @@
+db.students.find({
+    age:{$gt:22}
+})
+
+db.students.find({
+    courses:"react"
+})
+
+db.students.find({
+    name:{$regex:"^S"}
+})
+db.students.find({
+    age:{$in: [18,21]}
+})
+
+db.students.find({
+    email:{$not: /@gmail\.com$/}
+})
+
+db.students.find({
+    $and:[
+        {courses:"react"},
+        {age:{$gt:20}}
+    ]
+})
+db.students.find({
+    $or:[
+        {courses:"react"},
+        {courses:"next js"}
+    ]
+})
+
+db.students.find({
+    $or: [
+        { email:{$regex:".edu$"}},
+        {name:{$regex:"x"}}
+    ]
+})

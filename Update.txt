@@ -1,0 +1,42 @@
+db.Students.updateOne(
+
+    {name:"ABdifatah"},
+    {$set:{email:"abdifatahhasan@gmail.com"}}
+
+)
+
+db.Students.updateOne(
+    {name:"ABdifatah"},
+    { $inc:{points: 33}}
+)
+
+db.Students.updateOne(
+    {name:"HAssan"},
+    {$push:{courses:"Next.js"}}
+)
+
+db.Students.updateOne(
+    {name:"muna"},
+    {$pull:{courses:"react"}}
+)
+
+
+db.Students.updateOne(
+
+    {name:"muuse"},
+    {
+        $set: {email:"muuse@gmail.com"},
+        $inc:{ points:2 },
+        $push: { courses: { $each:['react','next js','mongo']}}
+        
+    }
+)
+
+
+db.Students.insertOne({
+  name:"abdifatah",
+  courses:[
+  	{ C_id:ObjectId("6a3a8d7927c5d0284d959181")},
+  	{ C_id:ObjectId("6a3a8d7927c5d0284d959182")}
+  ]
+})

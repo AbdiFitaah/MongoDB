@@ -1,0 +1,77 @@
+db.students.insertOne({
+    name:"abdifatah",
+    age:20,
+    email:"abdifatah@gmail.com",
+    courses:['react','next']
+})
+
+db.students.find()
+
+
+db.students.updateOne(
+    {age:20},
+    {$set {email: "muuse@gmail.com"}}
+)
+
+db.students.deleteOne(
+    {name:"abdifatah"}
+)
+
+db.students.insetOne(
+    name:"zakariye",
+    age:muuse,
+    email:"zakariye@gmail.com"
+    courses:['react','next'],
+    adress:{
+        degmada:"wadajir",
+        waaxda: " xalane "
+    }
+)
+
+
+*************************************
+
+db.students.find({ name : "ali" })
+db.students.find({ age:{ $gt :20 }})
+db.students.find({ age:{ $lt :20 } })
+db.students.find({ age:{ $ne :20 } })
+db.students.find({ age:{ $gte :20 } })
+db.students.find({ age:{ $lte :20 } })
+
+db.students.find({
+     { age:{ $lte :20 } },
+      email:"abdifatah@gmail.com"
+     })
+
+db.students.find({ age:{ $in [ 20,22 ] } })
+
+db.students.find({
+    $and:[
+        {age: { $gt:20 }},
+        name:"muuse"
+    ]
+})
+db.students.find({
+    $or:[
+        { age: { $gt:20 } },
+        name:"muuse"
+    ]
+})
+
+***ka bilaawda***********
+db.students.find({
+    name:{ $regex: "^a" }
+})
+
+***ku dhamaada***********
+db.students.find({
+    name:{ $regex: "a$" }
+})
+
+***ku dhex jira***********
+db.students.find({
+    name:{ $regex: "a" }
+})
+db.students.find({
+    email:{ $regex: "@gmail\\.com$" }
+})
